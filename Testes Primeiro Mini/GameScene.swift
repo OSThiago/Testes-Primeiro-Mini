@@ -29,7 +29,7 @@ class GameScene: SKScene {
         
         /*
          
-         
+         //amo a internet
          XIMBALAUÊ
          
          ajgwfdgvhijowduhytfawghidjoiuawtt989012
