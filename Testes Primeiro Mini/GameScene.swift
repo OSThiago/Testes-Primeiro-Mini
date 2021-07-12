@@ -32,7 +32,7 @@ class GameScene: SKScene {
          //amo a internet
          XIMBALAUÊ
          
-         ajgwfdgvhijowduhytfawghidjoiuawtt989012
+         ajgwfdgvhijowduhytfawghidjoiuawtt98901277
          
          */
         
