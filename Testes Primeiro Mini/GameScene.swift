@@ -32,6 +32,8 @@ class GameScene: SKScene {
          
          XIMBALAUÊ
          
+         ajgwfdgvhijowduhytfawghidjoiuawtt989012
+         
          */
         
         // Adicionado um background
