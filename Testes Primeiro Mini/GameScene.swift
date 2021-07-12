@@ -27,6 +27,13 @@ class GameScene: SKScene {
         // Altera ai meu
         // -------------------------
         
+        /*
+         
+         
+         XIMBALAUÊ
+         
+         */
+        
         // Adicionado um background
         self.createBackground(with: CGPoint(x: size.width*0.50, y: size.height*0.50))
 
