@@ -24,6 +24,7 @@ class GameScene: SKScene {
         // -------------------------
         // Escrever o código aqui
         // Primeira alteracao !!!!!!!!!!!!
+        // Altera ai meu
         // -------------------------
         
         // Adicionado um background
