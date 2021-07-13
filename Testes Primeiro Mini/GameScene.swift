@@ -31,6 +31,7 @@ class GameScene: SKScene {
 //           // moveGround(node: ground3)
 //
     }
+    //oi
     
     // Esse método é chamado automaticamente após a cena ser criada (DEPOIS do método init(:size))
     override func didMove(to view: SKView) {
