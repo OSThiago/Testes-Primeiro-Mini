@@ -47,9 +47,9 @@ class GameScene: SKScene {
     
     func createGround(position: CGPoint) -> SKSpriteNode{
             let ground = SKSpriteNode(imageNamed: "ground")
-            //ground.setScale(0.10) // 15 fica proximo ao tamnaho da tela
+            //ground.setScale(0.10) // 15 fica proximo ao tamanho da tela
             ground.yScale = 0.05
-            ground.xScale = 0.10
+            ground.xScale = 0.15
             //ground.xScale = frame.size.width
             ground.name = "Ground"
             ground.position = position
