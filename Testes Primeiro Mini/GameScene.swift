@@ -58,7 +58,7 @@ class GameScene: SKScene {
     
     
     func moveGround(node: SKSpriteNode) {
-        let moveAction = SKAction.moveBy(x: size.width*(-1.0), y: 0, duration: 3)
+        let moveAction = SKAction.moveBy(x: size.width*(-3.0), y: 0, duration: 3)
         node.run(moveAction)
     }
     
