@@ -12,7 +12,7 @@ import GameplayKit
 
 // A GameScene é criado na GameViewControl
 class GameScene: SKScene {
-    
+    // mudanca para teste commit
     override init(size: CGSize) {
         super.init(size: size)
         
