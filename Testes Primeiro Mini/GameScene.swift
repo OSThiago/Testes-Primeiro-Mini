@@ -11,38 +11,25 @@ import GameplayKit
 
 
 // A GameScene é criado na GameViewControl
-
 class GameScene: SKScene {
     
-    // Variaveis globais
-    
-    var player: SKSpriteNode?
-    // Primeiro método a ser chamado sempre que a cena for iniciada
     override init(size: CGSize) {
         super.init(size: size)
         
-        // -------------------------
-        // Escrever o código aqui
-        // Primeira alteracao !!!!!!!!!!!!
-        // Altera ai meu
-        // -------------------------
+        let initialPosition = CGPoint(x: size.width*(0.5) , y: size.height*0.5)
         
-        /*
-         
-         //amo a internet
-         XIMBALAUÊ
-         
-         ajgwfdgvhijowduhytfawghidjoiuawtt98901277
-         
-         */
+            let ground = createGround(position: initialPosition)
+            self.addChild(ground)
+            moveGround(node: ground)
         
-        // Adicionado um background
-        self.createBackground(with: CGPoint(x: size.width*0.50, y: size.height*0.50))
-
-        self.createGround(with: CGPoint(x: size.width*0.40, y: size.height*0.30))
+            let ground2 = createGround(position: CGPoint(x: size.width*(1.5) , y: size.height*0.5))
+            self.addChild(ground2)
+            moveGround(node: ground2)
+            
+            let ground3 = createGround(position: CGPoint(x: size.width*(2.5) , y: size.height*0.5))
+            self.addChild(ground3)
+            moveGround(node: ground3)
         
-        self.player =  cratePlayer(with: CGPoint(x: size.width*0.50, y: size.height*0.50))
-        self.addChild(player!)
     }
     
     // Esse método é chamado automaticamente após a cena ser criada (DEPOIS do método init(:size))
@@ -51,6 +38,40 @@ class GameScene: SKScene {
         // Funcao para indetificar a a direção do SWipe
         addSwipeGestureRecognizers()
     }
+    
+    override func update(_ currentTime: TimeInterval) {
+        // Called before each frame is rendered
+        
+    }
+    
+    
+    func createGround(position: CGPoint) -> SKSpriteNode{
+            let ground = SKSpriteNode(imageNamed: "ground")
+            //ground.setScale(0.10) // 15 fica proximo ao tamnaho da tela
+            ground.yScale = 0.05
+            ground.xScale = 0.10
+            //ground.xScale = frame.size.width
+            ground.name = "Ground"
+            ground.position = position
+            return ground
+    }
+    
+    
+    func moveGround(node: SKSpriteNode) {
+        let moveAction = SKAction.moveBy(x: size.width*(-1.0), y: 0, duration: 3)
+        node.run(moveAction)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+
+// MARK: - Configuration
+
+extension GameScene {
     
     func addSwipeGestureRecognizers() {
         // definindo as direções de gesto
@@ -71,100 +92,11 @@ class GameScene: SKScene {
         switch gesture.direction {
         case .up:
             print("SwipeUP")
-            // Aplicando um impulso ao node player (fazer ele pular)
-            player?.physicsBody?.applyImpulse(CGVector(dx: 0.0, dy: (player?.size.height)! * 0.5))
-        case .down:            
+        case .down:
             print("SwipeDown")
         default:
             print("No Direction")
         }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        // Adicionando evento de impulso(pulo)
-        // No caso ele vai pular com a referencia do tamnho do proprio node
-       // player?.physicsBody?.applyImpulse(CGVector(dx: 0.0, dy: (player?.size.height)! * 0.5))
-        
-    }
-    
-    
-    /**
-     Chamado até 60 por segundo
-     */
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-    }
-    
-    
-    // Criando um background para a cena
-    func createBackground(with position: CGPoint) {
-        // Definindo uma cor para o background
-        let backgroundColor = UIColor.cyan
-
-        // Definindo uma tamnho para node, no caso está pegando o mesmo tamanho da scene
-        let backgroundSize = CGSize(width: size.width, height: size.height)
-
-        // Criando o node com SKSpriteNode(aceita imagans e cor solida)
-        let background = SKSpriteNode(color: backgroundColor, size: backgroundSize)
-
-        // Alterando a posicao para a que foi passada na declaracao
-        background.position = position
-
-        background.zPosition = -1
-
-        // adicionando o background à cena
-        self.addChild(background)
-    }
-    
-    func createGround(with position: CGPoint){
-        
-        // Criando um chão do tipo SKSpriteNode (imagem ou cor solida)
-        let ground = SKSpriteNode(color: .brown, size: .init(width: 200, height: 50))
-        
-        // Definindo a posicao
-        ground.position = position
-        
-        // Criando um corpo fisico do tamanho do chão
-        let body = SKPhysicsBody(rectangleOf: ground.size)
-        
-        // Alterando as propriedades do corpo fisico
-        body.affectedByGravity = true
-        body.allowsRotation = false
-        // Deixar o node estatico (tira a dinamica do node)
-        body.isDynamic = false
-        
-        // Aplicando o corpo fisico ao chão
-        ground.physicsBody = body
-        
-        self.addChild(ground)
-    }
-    
-    
-    func cratePlayer(with position: CGPoint) -> SKSpriteNode{
-        
-        // Criando um node a partir de uma imagem
-        let player = SKSpriteNode(imageNamed: "thithi")
-        
-        // Definindo a posicao
-        player.position = position
-        
-        // crinado um corpo para adicionar fisica ao node
-        let body = SKPhysicsBody(rectangleOf: player.size )
-        body.affectedByGravity = true
-        body.allowsRotation = false
-        
-        // Atribuindo a fisica ao node
-        player.physicsBody = body
-        
-        
-        return player
-    }
-    
-    
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
 }
