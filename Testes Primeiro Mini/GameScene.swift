@@ -16,21 +16,22 @@ class GameScene: SKScene {
     override init(size: CGSize) {
         super.init(size: size)
         
-        let initialPosition = CGPoint(x: size.width*(0.5) , y: size.height*0.5)
+        let initialPosition = CGPoint(x: size.width*(2.0) , y: size.height*0.5)
         
             let ground = createGround(position: initialPosition)
             self.addChild(ground)
             moveGround(node: ground)
         
-            let ground2 = createGround(position: CGPoint(x: size.width*(1.5) , y: size.height*0.5))
-            self.addChild(ground2)
-            moveGround(node: ground2)
-            
-            let ground3 = createGround(position: CGPoint(x: size.width*(2.5) , y: size.height*0.5))
-            self.addChild(ground3)
-            moveGround(node: ground3)
-        
+//            let ground2 = createGround(position: CGPoint(x: size.width*(1.5) , y: size.height*0.5))
+//            self.addChild(ground2)
+//            //moveGround(node: ground2)
+//
+//            let ground3 = createGround(position: CGPoint(x: size.width*(2.5) , y: size.height*0.5))
+//            self.addChild(ground3)
+//           // moveGround(node: ground3)
+//
     }
+    //oi
     
     // Esse método é chamado automaticamente após a cena ser criada (DEPOIS do método init(:size))
     override func didMove(to view: SKView) {
@@ -47,7 +48,7 @@ class GameScene: SKScene {
     
     func createGround(position: CGPoint) -> SKSpriteNode{
             let ground = SKSpriteNode(imageNamed: "ground")
-            //ground.setScale(0.10) // 15 fica proximo ao tamanho da tela
+         
             ground.yScale = 0.05
             ground.xScale = 0.15
             //ground.xScale = frame.size.width
@@ -58,7 +59,7 @@ class GameScene: SKScene {
     
     
     func moveGround(node: SKSpriteNode) {
-        let moveAction = SKAction.moveBy(x: size.width*(-3.0), y: 0, duration: 3)
+        let moveAction = SKAction.moveBy(x: size.width*(-3.0), y: 0, duration: 8)
         node.run(moveAction)
     }
     
