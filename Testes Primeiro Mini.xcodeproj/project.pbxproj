@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		943FC8F5269F691F00D67044 /* GameScene+physics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FC8F4269F691F00D67044 /* GameScene+physics.swift */; };
+		945667E3269F81E800D6088B /* GameScene+EnemyGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945667E2269F81E800D6088B /* GameScene+EnemyGenerator.swift */; };
 		949FA554269E2A890076EC2E /* gerachao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949FA553269E2A890076EC2E /* gerachao.swift */; };
 		949FA556269E2EA60076EC2E /* GameScene+Mechanics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949FA555269E2EA60076EC2E /* GameScene+Mechanics.swift */; };
 		9E84D6BF269E7C2F00E54ABD /* GameScene+Generators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E84D6BE269E7C2F00E54ABD /* GameScene+Generators.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		943FC8F4269F691F00D67044 /* GameScene+physics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+physics.swift"; sourceTree = "<group>"; };
+		945667E2269F81E800D6088B /* GameScene+EnemyGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+EnemyGenerator.swift"; sourceTree = "<group>"; };
 		949FA553269E2A890076EC2E /* gerachao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gerachao.swift; sourceTree = "<group>"; };
 		949FA555269E2EA60076EC2E /* GameScene+Mechanics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+Mechanics.swift"; sourceTree = "<group>"; };
 		9E84D6BE269E7C2F00E54ABD /* GameScene+Generators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+Generators.swift"; sourceTree = "<group>"; };
@@ -80,6 +82,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		945667E4269F823D00D6088B /* Generetors */ = {
+			isa = PBXGroup;
+			children = (
+				949FA553269E2A890076EC2E /* gerachao.swift */,
+				9E84D6BE269E7C2F00E54ABD /* GameScene+Generators.swift */,
+				945667E2269F81E800D6088B /* GameScene+EnemyGenerator.swift */,
+			);
+			path = Generetors;
+			sourceTree = "<group>";
+		};
 		9EF107E02697715500501634 = {
 			isa = PBXGroup;
 			children = (
@@ -102,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				9EF107F22697715500501634 /* GameScene.swift */,
-				943FC8F4269F691F00D67044 /* GameScene+physics.swift */,
 				9EF1081D2697723100501634 /* Core */,
 				9EF107F92697715700501634 /* Assets.xcassets */,
 				9EF107FB2697715700501634 /* Info.plist */,
@@ -126,9 +137,9 @@
 		9EF1081E2697769900501634 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				945667E4269F823D00D6088B /* Generetors */,
+				943FC8F4269F691F00D67044 /* GameScene+physics.swift */,
 				949FA555269E2EA60076EC2E /* GameScene+Mechanics.swift */,
-				949FA553269E2A890076EC2E /* gerachao.swift */,
-				9E84D6BE269E7C2F00E54ABD /* GameScene+Generators.swift */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -265,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				943FC8F5269F691F00D67044 /* GameScene+physics.swift in Sources */,
+				945667E3269F81E800D6088B /* GameScene+EnemyGenerator.swift in Sources */,
 				9EF107F32697715500501634 /* GameScene.swift in Sources */,
 				9EF107F52697715500501634 /* GameViewController.swift in Sources */,
 				9EF107ED2697715500501634 /* AppDelegate.swift in Sources */,

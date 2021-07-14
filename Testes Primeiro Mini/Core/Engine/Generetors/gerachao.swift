@@ -11,11 +11,13 @@ extension GameScene{
     
     func createGround(position: CGPoint) -> SKSpriteNode{
         //criando o chao e definido as escalas e posicao
-        let ground = SKSpriteNode(imageNamed: "ground")
+        let ground = SKSpriteNode(imageNamed: "tilecemiterio")
         
          
-        ground.yScale = 0.05
-        ground.xScale = 0.21
+//        ground.yScale = 0.05
+//        ground.xScale = 0.21
+        ground.setScale(2.5)
+       // ground.size.height = CGFloat(size.width*0.15)
             //ground.xScale = frame.size.width
         ground.name = "Ground"
         ground.position = position
@@ -26,6 +28,7 @@ extension GameScene{
         body.allowsRotation = false
         body.isDynamic = false
         body.categoryBitMask = UInt32(mask.ground.rawValue) // atribuindo uma categoria de mascara ao chao
+        body.contactTestBitMask = UInt32(mask.player.rawValue) | UInt32(mask.enemy.rawValue)
         ground.physicsBody = body
         
         
@@ -44,19 +47,22 @@ extension GameScene{
         }
         
         
-        let waitInBetween = SKAction.wait(forDuration: time)
+        let waitInBetween = SKAction.wait(forDuration: time)//0.07
         let sequence = SKAction.sequence([creatGround,waitInBetween])
-        let repeatForever = SKAction.repeatForever(sequence)
-        self.run(repeatForever)
+        //let repeatForever = SKAction.repeatForever(sequence)
+        self.run(sequence)
     }
     
     func moveGround(node: SKSpriteNode, time: TimeInterval) {
         
         let multiplier = 4.0
         let moveAction = SKAction.moveBy(x: size.width*(-2.8), y: 0, duration: time*multiplier)
+        let chamarCriacao = SKAction.run {
+            self.generateGrounds(time: time)
+        }
         
         let remover = SKAction.removeFromParent()
-        let sequencia = SKAction.sequence([moveAction,remover])
+        let sequencia = SKAction.sequence([moveAction,remover,chamarCriacao])
         node.run(sequencia)
     }
     
