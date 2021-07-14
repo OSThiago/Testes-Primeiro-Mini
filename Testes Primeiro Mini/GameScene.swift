@@ -18,6 +18,17 @@ class GameScene: SKScene {
         
         self.physicsWorld.contactDelegate = self
         
+        let personagem = SKSpriteNode(imageNamed: "Personagem_lado")
+        personagem.position = CGPoint(x: size.width*0.5, y: size.height*0.8)
+        
+        let body = SKPhysicsBody(texture: SKTexture(imageNamed: "Personagem_lado"), size: personagem.size)
+        body.affectedByGravity = true
+        body.allowsRotation = false
+        body.categoryBitMask = UInt32(mask.player.rawValue)
+        body.contactTestBitMask = UInt32(mask.ground.rawValue) | UInt32(mask.enemy.rawValue)
+        personagem.physicsBody = body
+        self.addChild(personagem)
+        
         let initialPosition = CGPoint(x: size.width*0.50, y: size.height*0.50)
         
         let background = createBackGround(imageName: "plx-1", position: initialPosition, deph: -4)

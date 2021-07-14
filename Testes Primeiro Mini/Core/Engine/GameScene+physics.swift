@@ -17,7 +17,7 @@ extension GameScene: SKPhysicsContactDelegate{
     
     
     func didBegin(_ contact: SKPhysicsContact) {
-        //comeco de um contato
+        print("teve contato")
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
