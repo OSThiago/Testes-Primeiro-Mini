@@ -25,7 +25,7 @@ extension GameScene{
         body.affectedByGravity = true
         body.allowsRotation = false
         body.isDynamic = false
-        body.categoryBitMask = UInt32(mask.ground.rawValue)
+        body.categoryBitMask = UInt32(mask.ground.rawValue) // atribuindo uma categoria de mascara ao chao
         ground.physicsBody = body
         
         
