@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		949FA554269E2A890076EC2E /* gerachao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949FA553269E2A890076EC2E /* gerachao.swift */; };
 		949FA556269E2EA60076EC2E /* GameScene+Mechanics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949FA555269E2EA60076EC2E /* GameScene+Mechanics.swift */; };
+		9E84D6BF269E7C2F00E54ABD /* GameScene+Generators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E84D6BE269E7C2F00E54ABD /* GameScene+Generators.swift */; };
 		9EF107ED2697715500501634 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF107EC2697715500501634 /* AppDelegate.swift */; };
 		9EF107EF2697715500501634 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9EF107EE2697715500501634 /* GameScene.sks */; };
 		9EF107F12697715500501634 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9EF107F02697715500501634 /* Actions.sks */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		949FA553269E2A890076EC2E /* gerachao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gerachao.swift; sourceTree = "<group>"; };
 		949FA555269E2EA60076EC2E /* GameScene+Mechanics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+Mechanics.swift"; sourceTree = "<group>"; };
+		9E84D6BE269E7C2F00E54ABD /* GameScene+Generators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+Generators.swift"; sourceTree = "<group>"; };
 		9EF107E92697715500501634 /* Testes Primeiro Mini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Testes Primeiro Mini.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF107EC2697715500501634 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EF107EE2697715500501634 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -97,8 +99,6 @@
 		9EF107EB2697715500501634 /* Testes Primeiro Mini */ = {
 			isa = PBXGroup;
 			children = (
-				949FA555269E2EA60076EC2E /* GameScene+Mechanics.swift */,
-				949FA553269E2A890076EC2E /* gerachao.swift */,
 				9EF107F22697715500501634 /* GameScene.swift */,
 				9EF1081D2697723100501634 /* Core */,
 				9EF107F92697715700501634 /* Assets.xcassets */,
@@ -123,6 +123,9 @@
 		9EF1081E2697769900501634 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				949FA555269E2EA60076EC2E /* GameScene+Mechanics.swift */,
+				949FA553269E2A890076EC2E /* gerachao.swift */,
+				9E84D6BE269E7C2F00E54ABD /* GameScene+Generators.swift */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				9EF107F52697715500501634 /* GameViewController.swift in Sources */,
 				9EF107ED2697715500501634 /* AppDelegate.swift in Sources */,
 				949FA556269E2EA60076EC2E /* GameScene+Mechanics.swift in Sources */,
+				9E84D6BF269E7C2F00E54ABD /* GameScene+Generators.swift in Sources */,
 				949FA554269E2A890076EC2E /* gerachao.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

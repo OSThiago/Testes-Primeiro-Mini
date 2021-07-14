@@ -16,21 +16,21 @@ class GameScene: SKScene {
     override init(size: CGSize) {
         super.init(size: size)
         
+        
+        let initialPosition = CGPoint(x: size.width*0.50, y: size.height*0.50)
+        
+        let background = createBackGround(imageName: "plx-1", position: initialPosition, deph: -4)
+        
+        self.addChild(background)
+        
+        
+//MARK:- TESTE MOVEMENTACAO BACKGROUND
+        parallax()
+        
         generateGrounds(time: 2)
+        initialGround(time: 2)
 
-        //let initialPosition = CGPoint(x: size.width*(2.0) , y: size.height*0.5)
-        
-        
-//            let ground2 = createGround(position: CGPoint(x: size.width*(1.5) , y: size.height*0.5))
-//            self.addChild(ground2)
-//            //moveGround(node: ground2)
-//
-//            let ground3 = createGround(position: CGPoint(x: size.width*(2.5) , y: size.height*0.5))
-//            self.addChild(ground3)
-//           // moveGround(node: ground3)
-//
     }
-    //oi
     
     // Esse método é chamado automaticamente após a cena ser criada (DEPOIS do método init(:size))
     override func didMove(to view: SKView) {
