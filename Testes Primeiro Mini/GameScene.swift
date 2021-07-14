@@ -16,6 +16,7 @@ class GameScene: SKScene {
     override init(size: CGSize) {
         super.init(size: size)
         
+        self.physicsWorld.contactDelegate = self
         generateGrounds(time: 2)
 
         //let initialPosition = CGPoint(x: size.width*(2.0) , y: size.height*0.5)

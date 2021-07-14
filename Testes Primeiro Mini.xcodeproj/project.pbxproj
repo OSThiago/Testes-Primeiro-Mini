@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		943FC8F5269F691F00D67044 /* GameScene+physics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943FC8F4269F691F00D67044 /* GameScene+physics.swift */; };
 		949FA554269E2A890076EC2E /* gerachao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949FA553269E2A890076EC2E /* gerachao.swift */; };
 		949FA556269E2EA60076EC2E /* GameScene+Mechanics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949FA555269E2EA60076EC2E /* GameScene+Mechanics.swift */; };
 		9EF107ED2697715500501634 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF107EC2697715500501634 /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		943FC8F4269F691F00D67044 /* GameScene+physics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+physics.swift"; sourceTree = "<group>"; };
 		949FA553269E2A890076EC2E /* gerachao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gerachao.swift; sourceTree = "<group>"; };
 		949FA555269E2EA60076EC2E /* GameScene+Mechanics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+Mechanics.swift"; sourceTree = "<group>"; };
 		9EF107E92697715500501634 /* Testes Primeiro Mini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Testes Primeiro Mini.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +102,7 @@
 				949FA555269E2EA60076EC2E /* GameScene+Mechanics.swift */,
 				949FA553269E2A890076EC2E /* gerachao.swift */,
 				9EF107F22697715500501634 /* GameScene.swift */,
+				943FC8F4269F691F00D67044 /* GameScene+physics.swift */,
 				9EF1081D2697723100501634 /* Core */,
 				9EF107F92697715700501634 /* Assets.xcassets */,
 				9EF107FB2697715700501634 /* Info.plist */,
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				943FC8F5269F691F00D67044 /* GameScene+physics.swift in Sources */,
 				9EF107F32697715500501634 /* GameScene.swift in Sources */,
 				9EF107F52697715500501634 /* GameViewController.swift in Sources */,
 				9EF107ED2697715500501634 /* AppDelegate.swift in Sources */,

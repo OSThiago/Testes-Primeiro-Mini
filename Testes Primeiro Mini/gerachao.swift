@@ -12,6 +12,7 @@ extension GameScene{
     func createGround(position: CGPoint) -> SKSpriteNode{
         //criando o chao e definido as escalas e posicao
         let ground = SKSpriteNode(imageNamed: "ground")
+        
          
         ground.yScale = 0.05
         ground.xScale = 0.15
@@ -24,6 +25,7 @@ extension GameScene{
         body.affectedByGravity = true
         body.allowsRotation = false
         body.isDynamic = false
+        body.categoryBitMask = UInt32(mask.ground.rawValue)
         ground.physicsBody = body
         
         
