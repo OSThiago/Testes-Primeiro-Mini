@@ -28,11 +28,7 @@ extension GameScene{
     
     
     func generatEnemys(time: TimeInterval){
-//        let escolha: [CGFloat] = [0.36,0.63]
-//        let valor: CGFloat = escolha.randomElement()!
-//
-//        var qualquerCoisaAi = self.randomPosition()
-//        let initialPosition = CGPoint(x: size.width*1.5, y: size.height*(qualquerCoisaAi))
+
         
         let creatEnemy = SKAction.run {
             let qualquerCoisaAi = self.randomPosition()
@@ -43,13 +39,10 @@ extension GameScene{
                 _enemy.xScale = _enemy.xScale*(-1)
                 _enemy.yScale = _enemy.yScale*(-1)
             }
-//            let enemyInvert = self.creatEnemy(position: initialPosition2)
-//            enemyInvert.xScale = enemyInvert.xScale*(-1)
-//            enemyInvert.yScale = enemyInvert.yScale*(-1)
-//            self.addChild(enemyInvert)
+
             self.addChild(_enemy)
             self.moveEnemy(node: _enemy, time: time)
-            //self.moveEnemy(node: enemyInvert, time: time)
+        
         }
         
         let waitInBetween = SKAction.wait(forDuration: time)
@@ -63,7 +56,7 @@ extension GameScene{
         print(random)
         switch random {
         case 1:
-            return 0.35
+            return 0.39
         case 2:
             return 0.63
         default:

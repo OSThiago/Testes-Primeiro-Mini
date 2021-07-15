@@ -27,9 +27,23 @@ extension GameScene{
         switch gesture.direction {
         case .up:
             print("SwipeUP")
-            personagem.physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(personagem.size.height*0.3)))
+            if ( personagem.yScale < 0){
+                personagem.position = CGPoint(x: size.width*(0.5), y: size.height*(0.63))
+                personagem.yScale = personagem.yScale*(-1)
+                physicsWorld.gravity.dy = physicsWorld.gravity.dy*(-1)
+            }else{
+                personagem.physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(personagem.size.height*0.35)))
+            }
+            
         case .down:
             print("SwipeDown")
+            if ( personagem.yScale > 0){
+                personagem.position = CGPoint(x: size.width*(0.5), y: size.height*(0.39))
+                personagem.yScale = personagem.yScale*(-1)
+                physicsWorld.gravity.dy = physicsWorld.gravity.dy*(-1)
+            }else{
+                personagem.physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(personagem.size.height*(-0.35))))
+            }
         default:
             print("No Direction")
         }

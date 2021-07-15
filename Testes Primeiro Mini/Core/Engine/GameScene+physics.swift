@@ -17,7 +17,14 @@ extension GameScene: SKPhysicsContactDelegate{
     
     
     func didBegin(_ contact: SKPhysicsContact) {
-       // print("teve contato")
+        if (contact.bodyA.node?.name == "player" && contact.bodyB.node?.name == "enemy"){
+            contact.bodyA.node?.removeFromParent()
+            print("you loser my brother")
+        }
+        if (contact.bodyA.node?.name == "enemy" && contact.bodyB.node?.name == "player"){
+            contact.bodyA.node?.removeFromParent()
+            print("you loser my brother")
+        }
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
