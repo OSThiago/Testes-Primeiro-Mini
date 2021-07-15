@@ -32,11 +32,11 @@ class GameScene: SKScene {
         personagem.setPosition(position: initalPosition)
         
         
-        let initialPosition = CGPoint(x: size.width*0.50, y: size.height*0.50)
-        
-        let background = createBackGround(imageName: "plx-1", position: initialPosition, deph: -4)
-        
-        self.addChild(background)
+//        let initialPosition = CGPoint(x: size.width*0.50, y: size.height*0.50)
+//        
+//        let background = createBackGround(imageName: "plx-1", position: initialPosition, deph: -9)
+//        
+//        self.addChild(background)
         
         
 //MARK:- TESTE MOVEMENTACAO BACKGROUND
