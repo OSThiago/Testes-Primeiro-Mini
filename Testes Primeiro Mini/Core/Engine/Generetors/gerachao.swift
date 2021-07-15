@@ -28,7 +28,7 @@ extension GameScene{
         body.allowsRotation = false
         body.isDynamic = false
         body.categoryBitMask = UInt32(mask.ground.rawValue) // atribuindo uma categoria de mascara ao chao
-        body.contactTestBitMask = UInt32(mask.player.rawValue) | UInt32(mask.enemy.rawValue)
+        body.contactTestBitMask = UInt32(mask.player.rawValue) 
         ground.physicsBody = body
         
         

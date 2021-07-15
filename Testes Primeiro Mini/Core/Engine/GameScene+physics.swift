@@ -17,10 +17,10 @@ extension GameScene: SKPhysicsContactDelegate{
     
     
     func didBegin(_ contact: SKPhysicsContact) {
-        print("teve contato")
+       // print("teve contato")
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
-        print("perdeu o contato")
+      //  print("perdeu o contato")
     }
 }

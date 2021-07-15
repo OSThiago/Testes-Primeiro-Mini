@@ -45,6 +45,7 @@ class GameScene: SKScene {
         
         generateGrounds(time: 2)
         generatEnemys(time: 2)
+       // generatEnemysInvertidos(time: 2.2)
         initialGround(time: 2)
 
     }
