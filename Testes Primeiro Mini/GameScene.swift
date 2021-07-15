@@ -14,24 +14,23 @@ import GameplayKit
 class GameScene: SKScene {
     // mudanca para teste commit
     
-    let personagem = SKSpriteNode(imageNamed: "Personagem_lado")
+    //let personagem = SKSpriteNode(imageNamed: "Personagem_lado")
+    
+    let personagem = Player(imageName: "Personagem_lado")
     
     override init(size: CGSize) {
         super.init(size: size)
         
         self.physicsWorld.contactDelegate = self
         
+       
+        let initalPosition = CGPoint(x: size.width*0.5, y: size.height*0.8)
         
-        personagem.position = CGPoint(x: size.width*0.5, y: size.height*0.8)
-        personagem.name = "player"
+        self.addChild(personagem.getNode())
         
-        let body = SKPhysicsBody(texture: SKTexture(imageNamed: "Personagem_lado"), size: personagem.size)
-        body.affectedByGravity = true
-        body.allowsRotation = false
-        body.categoryBitMask = UInt32(mask.player.rawValue)
-        body.contactTestBitMask = UInt32(mask.ground.rawValue) | UInt32(mask.enemy.rawValue)
-        personagem.physicsBody = body
-        self.addChild(personagem)
+        
+        personagem.setPosition(position: initalPosition)
+        
         
         let initialPosition = CGPoint(x: size.width*0.50, y: size.height*0.50)
         
