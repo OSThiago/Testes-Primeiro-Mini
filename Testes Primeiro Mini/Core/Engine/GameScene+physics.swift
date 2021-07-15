@@ -21,6 +21,6 @@ extension GameScene: SKPhysicsContactDelegate{
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
-        // fim de um contato
+        print("perdeu o contato")
     }
 }

@@ -27,6 +27,7 @@ extension GameScene{
         switch gesture.direction {
         case .up:
             print("SwipeUP")
+            personagem.physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(personagem.size.height*0.3)))
         case .down:
             print("SwipeDown")
         default:

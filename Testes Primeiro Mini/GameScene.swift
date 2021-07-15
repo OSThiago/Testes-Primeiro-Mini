@@ -13,13 +13,17 @@ import GameplayKit
 // A GameScene é criado na GameViewControl
 class GameScene: SKScene {
     // mudanca para teste commit
+    
+    let personagem = SKSpriteNode(imageNamed: "Personagem_lado")
+    
     override init(size: CGSize) {
         super.init(size: size)
         
         self.physicsWorld.contactDelegate = self
         
-        let personagem = SKSpriteNode(imageNamed: "Personagem_lado")
+        
         personagem.position = CGPoint(x: size.width*0.5, y: size.height*0.8)
+        personagem.name = "player"
         
         let body = SKPhysicsBody(texture: SKTexture(imageNamed: "Personagem_lado"), size: personagem.size)
         body.affectedByGravity = true
@@ -40,6 +44,7 @@ class GameScene: SKScene {
         parallax()
         
         generateGrounds(time: 2)
+        generatEnemys(time: 2)
         initialGround(time: 2)
 
     }
