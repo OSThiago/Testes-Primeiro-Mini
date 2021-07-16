@@ -51,7 +51,16 @@ extension GameScene {
     }
     
     func reversePlayer(heightPosition: CGFloat) {
-        player.getNode().position = CGPoint(x: size.width*(0.5), y: size.height*(heightPosition))
+        player.getNode().physicsBody = nil
+        let mover = SKAction.moveTo(y: size.height*(heightPosition), duration: 0.3)
+        let colocarFisica = SKAction.run {
+            self.player.setPhysicsBody(body: self.player.intialBody())
+        }
+        let sequencia = SKAction.sequence([mover,colocarFisica])
+        player.getNode().run(sequencia)
+       
+        
+        //player.getNode().position = CGPoint(x: size.width*(0.5), y: size.height*(heightPosition))
         player.getNode().yScale = player.getNode().yScale*(-1)
          physicsWorld.gravity.dy = physicsWorld.gravity.dy*(-1)
         changePlayerSide(atualSide: player.getPlayerSide())

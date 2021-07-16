@@ -18,6 +18,7 @@ class Player {
         self.player = SKSpriteNode(imageNamed: imageName)
         self.imageName = imageName
         self.player.name = "player"
+        self.player.zPosition = 1
         self.playerSide = .TOP
         self.player.physicsBody = self.intialBody()
         
@@ -25,7 +26,7 @@ class Player {
 
     
     // Metodos
-  
+
     // MARK: - Position
     func setPosition(position: CGPoint) {
         player.position = position

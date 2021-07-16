@@ -22,7 +22,7 @@ extension GameScene: SKPhysicsContactDelegate{
             print("you loser my brother")
         }
         if (contact.bodyA.node?.name == "enemy" && contact.bodyB.node?.name == "player"){
-            contact.bodyA.node?.removeFromParent()
+            contact.bodyB.node?.removeFromParent()
             print("you loser my brother")
         }
     }
