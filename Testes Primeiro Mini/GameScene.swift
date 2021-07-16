@@ -16,8 +16,10 @@ class GameScene: SKScene {
     
     //let personagem = SKSpriteNode(imageNamed: "Personagem_lado")
     
-    let personagem = Player(imageName: "Personagem_lado")
+    let player = Player(imageName: "Personagem_lado")
     
+    
+
     override init(size: CGSize) {
         super.init(size: size)
         
@@ -26,28 +28,18 @@ class GameScene: SKScene {
        
         let initalPosition = CGPoint(x: size.width*0.5, y: size.height*0.8)
         
-        self.addChild(personagem.getNode())
+        self.addChild(player.getNode())
         
-        
-        personagem.setPosition(position: initalPosition)
-        
-        
-//        let initialPosition = CGPoint(x: size.width*0.50, y: size.height*0.50)
-//        
-//        let background = createBackGround(imageName: "plx-1", position: initialPosition, deph: -9)
-//        
-//        self.addChild(background)
-        
-        
-//MARK:- TESTE MOVEMENTACAO BACKGROUND
+        player.setPosition(position: initalPosition)
+         
         parallax()
         
         generateGrounds(time: 2)
         generatEnemys(time: 2)
-       // generatEnemysInvertidos(time: 2.2)
         initialGround(time: 2)
-
     }
+    
+    
     
     // Esse método é chamado automaticamente após a cena ser criada (DEPOIS do método init(:size))
     override func didMove(to view: SKView) {

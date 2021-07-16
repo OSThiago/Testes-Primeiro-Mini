@@ -27,22 +27,22 @@ extension GameScene{
         switch gesture.direction {
         case .up:
             print("SwipeUP")
-            if ( personagem.player.yScale < 0){
+            if ( player.getNode().yScale < 0){
                 
                 reversePlayer(heightPosition: 0.63)
 
             }else{
-                personagem.player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(personagem.player.size.height*0.22)))
+                player.getNode().physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(player.getNode().size.height*0.22)))
             }
             
         case .down:
             print("SwipeDown")
-            if ( personagem.player.yScale > 0){
+            if ( player.getNode().yScale > 0){
                 
                 reversePlayer(heightPosition: 0.39)
                 
             }else{
-                personagem.player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(personagem.player.size.height*(-0.22))))
+                player.getNode().physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(player.getNode().size.height*(-0.22))))
             }
         default:
             print("No Direction")
@@ -51,8 +51,8 @@ extension GameScene{
     
     
     func reversePlayer(heightPosition: CGFloat) {
-        personagem.player.position = CGPoint(x: size.width*(0.5), y: size.height*(heightPosition))
-        personagem.player.yScale = personagem.player.yScale*(-1)
+        player.getNode().position = CGPoint(x: size.width*(0.5), y: size.height*(heightPosition))
+        player.getNode().yScale = player.getNode().yScale*(-1)
          physicsWorld.gravity.dy = physicsWorld.gravity.dy*(-1)
     }
     

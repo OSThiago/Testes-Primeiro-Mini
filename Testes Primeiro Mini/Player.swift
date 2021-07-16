@@ -9,7 +9,7 @@ import SpriteKit
 
 class Player {
     // Propriedades
-    let player: SKSpriteNode
+    private let player: SKSpriteNode
     private let imageName: String
     
     
@@ -18,16 +18,14 @@ class Player {
         self.player = SKSpriteNode(imageNamed: imageName)
         self.imageName = imageName
         self.player.name = "player"
-        
-        
         self.player.physicsBody = self.intialBody()
         
     }
+
     
-    
-// Metodos
+    // Metodos
   
-// MARK: - Position
+    // MARK: - Position
     func setPosition(position: CGPoint) {
         player.position = position
     }
@@ -36,22 +34,27 @@ class Player {
         self.player.position
     }
     
-// MARK: - BODY
+    
+    
+    
+    // MARK: - BODY
     
     func setPhysicsBody(body: SKPhysicsBody) {
         self.player.physicsBody = body
     }
     
-    
-    
     func getNode() -> SKSpriteNode{
         return self.player
     }
     
+    
 }
+
+// MARK:- Extensions
 
 extension Player {
     
+    // Função para adicionar o corpo fisico ao node player
     func intialBody() ->SKPhysicsBody{
         let body = SKPhysicsBody(texture: SKTexture(imageNamed: self.imageName), size: CGSize(width: player.size.width, height: player.size.height*(0.6)))//0.6
         
