@@ -21,6 +21,7 @@ class Player {
         
         
         self.player.physicsBody = self.intialBody()
+        
     }
     
     
@@ -52,7 +53,7 @@ class Player {
 extension Player {
     
     func intialBody() ->SKPhysicsBody{
-        let body = SKPhysicsBody(texture: SKTexture(imageNamed: self.imageName), size: player.size)
+        let body = SKPhysicsBody(texture: SKTexture(imageNamed: self.imageName), size: CGSize(width: player.size.width, height: player.size.height*(0.6)))//0.6
         
         body.affectedByGravity = true
         body.allowsRotation = false

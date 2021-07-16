@@ -32,7 +32,7 @@ extension GameScene{
                 personagem.player.yScale = personagem.player.yScale*(-1)
                 physicsWorld.gravity.dy = physicsWorld.gravity.dy*(-1)
             }else{
-                personagem.player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(personagem.player.size.height*0.35)))
+                personagem.player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(personagem.player.size.height*0.22)))
             }
             
         case .down:
@@ -42,7 +42,7 @@ extension GameScene{
                 personagem.player.yScale = personagem.player.yScale*(-1)
                 physicsWorld.gravity.dy = physicsWorld.gravity.dy*(-1)
             }else{
-                personagem.player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(personagem.player.size.height*(-0.35))))
+                personagem.player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(personagem.player.size.height*(-0.22))))
             }
         default:
             print("No Direction")
