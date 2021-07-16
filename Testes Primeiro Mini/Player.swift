@@ -11,13 +11,14 @@ class Player {
     // Propriedades
     private let player: SKSpriteNode
     private let imageName: String
-    
+    private var playerSide: PlayerSide
     
     // Inicializadores
     init(imageName: String) {
         self.player = SKSpriteNode(imageNamed: imageName)
         self.imageName = imageName
         self.player.name = "player"
+        self.playerSide = .TOP
         self.player.physicsBody = self.intialBody()
         
     }
@@ -47,6 +48,16 @@ class Player {
         return self.player
     }
     
+    // MARK:- playerState
+    
+    func getPlayerSide() -> PlayerSide {
+        return self.playerSide
+    }
+    
+    func setPlayerSide(side: PlayerSide) {
+        self.playerSide = side
+    }
+    
     
 }
 
@@ -64,5 +75,11 @@ extension Player {
         body.contactTestBitMask = UInt32(mask.ground.rawValue) | UInt32(mask.enemy.rawValue)
         return body
     }
+    
+}
+
+
+enum PlayerSide {
+    case TOP, BOTTOM
     
 }

@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-extension GameScene{
+extension GameScene {
     func addSwipeGestureRecognizers() {
         // definindo as direções de gesto
         let gesturesDirections: [UISwipeGestureRecognizer.Direction] = [.up, .down]
@@ -27,33 +27,49 @@ extension GameScene{
         switch gesture.direction {
         case .up:
             print("SwipeUP")
-            if ( player.getNode().yScale < 0){
-                
+            // Olha o lado atual do player: em cima ou em baixo
+            switch player.getPlayerSide() {
+            case .TOP:
+                jumpPlayer(heightJump: 0.22)
+            case .BOTTOM:
                 reversePlayer(heightPosition: 0.63)
-
-            }else{
-                player.getNode().physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(player.getNode().size.height*0.22)))
             }
-            
+
         case .down:
             print("SwipeDown")
-            if ( player.getNode().yScale > 0){
-                
+            // Olha o lado atual do player: em cima ou em baixo
+            switch player.getPlayerSide() {
+            case .TOP:
                 reversePlayer(heightPosition: 0.39)
-                
-            }else{
-                player.getNode().physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(player.getNode().size.height*(-0.22))))
+            case .BOTTOM:
+                jumpPlayer(heightJump: -0.22)
             }
+                          
         default:
             print("No Direction")
         }
     }
     
-    
     func reversePlayer(heightPosition: CGFloat) {
         player.getNode().position = CGPoint(x: size.width*(0.5), y: size.height*(heightPosition))
         player.getNode().yScale = player.getNode().yScale*(-1)
          physicsWorld.gravity.dy = physicsWorld.gravity.dy*(-1)
+        changePlayerSide(atualSide: player.getPlayerSide())
+        print(player.getPlayerSide())
     }
+    
+    func jumpPlayer(heightJump: CGFloat) {
+        player.getNode().physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(player.getNode().size.height*(heightJump))))
+    }
+    
+    func changePlayerSide(atualSide: PlayerSide) {
+        switch atualSide {
+        case .TOP:
+            player.setPlayerSide(side: .BOTTOM)
+        case .BOTTOM:
+            player.setPlayerSide(side: .TOP)
+        }
+    }
+    
     
 }
