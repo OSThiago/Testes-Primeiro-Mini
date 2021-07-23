@@ -30,7 +30,7 @@ extension GameScene {
             // Olha o lado atual do player: em cima ou em baixo
             switch player.getPlayerSide() {
             case .TOP:
-                jumpPlayer(heightJump: 0.22)
+                jumpPlayer(heightJump: 0.36)
             case .BOTTOM:
                 reversePlayer(heightPosition: 0.63)
             }
@@ -42,42 +42,37 @@ extension GameScene {
             case .TOP:
                 reversePlayer(heightPosition: 0.39)
             case .BOTTOM:
-                jumpPlayer(heightJump: -0.22)
+                jumpPlayer(heightJump: -0.36)
             }
-                          
         default:
             print("No Direction")
         }
     }
     
     func reversePlayer(heightPosition: CGFloat) {
-        player.getNode().physicsBody = nil
+        
+        let removePhysics = SKAction.run {
+            self.player.physicsBody = nil
+        }
+        
         let mover = SKAction.moveTo(y: size.height*(heightPosition), duration: 0.3)
         let colocarFisica = SKAction.run {
-            self.player.setPhysicsBody(body: self.player.intialBody())
+            self.player.physicsBody = self.player.createBody()
         }
-        let sequencia = SKAction.sequence([mover,colocarFisica])
-        player.getNode().run(sequencia)
+        let sequencia = SKAction.sequence([removePhysics,mover,colocarFisica])
+        player.run(sequencia)
        
         
         //player.getNode().position = CGPoint(x: size.width*(0.5), y: size.height*(heightPosition))
-        player.getNode().yScale = player.getNode().yScale*(-1)
-         physicsWorld.gravity.dy = physicsWorld.gravity.dy*(-1)
-        changePlayerSide(atualSide: player.getPlayerSide())
+        player.yScale = player.yScale*(-1)
+        physicsWorld.gravity.dy = physicsWorld.gravity.dy*(-1)
+        player.reversePlayerSide()
+        
         print(player.getPlayerSide())
     }
     
     func jumpPlayer(heightJump: CGFloat) {
-        player.getNode().physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(player.getNode().size.height*(heightJump))))
-    }
-    
-    func changePlayerSide(atualSide: PlayerSide) {
-        switch atualSide {
-        case .TOP:
-            player.setPlayerSide(side: .BOTTOM)
-        case .BOTTOM:
-            player.setPlayerSide(side: .TOP)
-        }
+        player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: CGFloat(player.size.height*(heightJump))))
     }
     
     

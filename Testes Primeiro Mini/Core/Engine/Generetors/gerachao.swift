@@ -35,35 +35,35 @@ extension GameScene{
         
         return ground
     }
-    
-    
-    
-    func generateGrounds(time: TimeInterval) {
-        let initialPosition = CGPoint(x: size.width*1.5, y: size.height*0.5)
-        let creatGround = SKAction.run {
-            let _ground = self.createGround(position: initialPosition)
-            self.addChild(_ground)
-            self.moveGround(node: _ground, time: time)
-            
-            
-        }
-        
-        let waitInBetween = SKAction.wait(forDuration: time*0.07)//0.07
-        let sequence = SKAction.sequence([creatGround,waitInBetween])
-        let repeatForever = SKAction.repeatForever(sequence)
-        self.run(repeatForever)
-    }
-    
-    func moveGround(node: SKSpriteNode, time: TimeInterval) {
-        
-        let multiplier = 4.0
-        let moveAction = SKAction.moveBy(x: size.width*(-2.8), y: 0, duration: time*multiplier)
-        
-        let remover = SKAction.removeFromParent()
-        let sequencia = SKAction.sequence([moveAction,remover])
-        node.run(sequencia)
-    }
-    
+//    
+//    
+//    
+//    func generateGrounds(time: TimeInterval) {
+//        let initialPosition = CGPoint(x: size.width*1.5, y: size.height*0.5)
+//        let creatGround = SKAction.run {
+//            let _ground = self.createGround(position: initialPosition)
+//            self.addChild(_ground)
+//            self.moveGround(node: _ground, time: time)
+//            
+//            
+//        }
+//        
+//        let waitInBetween = SKAction.wait(forDuration: time*0.07)//0.07
+//        let sequence = SKAction.sequence([creatGround,waitInBetween])
+//        let repeatForever = SKAction.repeatForever(sequence)
+//        self.run(repeatForever)
+//    }
+//    
+//    func moveGround(node: SKSpriteNode, time: TimeInterval) {
+//        
+//        let multiplier = 4.0
+//        let moveAction = SKAction.moveBy(x: size.width*(-2.8), y: 0, duration: time*multiplier)
+//        
+//        let remover = SKAction.removeFromParent()
+//        let sequencia = SKAction.sequence([moveAction,remover])
+//        node.run(sequencia)
+//    }
+//    
     func initialGround(time: TimeInterval) {
         
         // Criar blocos que preenche a tela ao iniciar
@@ -76,8 +76,18 @@ extension GameScene{
                 self.addChild(ground)
                        
                 //Colocando o chão para se mover
-                self.moveGround(node: ground, time: time)
+            
+                start(ground: ground, speed: 2)
+                //self.moveGround(node: ground, time: time)
         }
     }
+    
+    func start(ground: SKSpriteNode, speed: TimeInterval){
+            let moveLef = SKAction.moveBy(x: -frame.size.width/2, y: 0.0, duration: speed)
+            let reset = SKAction.moveBy(x: frame.size.width/2, y: 0.0, duration: 0.0)
+            let sequence = SKAction.sequence([moveLef,reset])
+            ground.run(SKAction.repeatForever(sequence))
+        }
+    
     
 }

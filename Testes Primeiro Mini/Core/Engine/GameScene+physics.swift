@@ -9,7 +9,7 @@ import SpriteKit
 
 
 enum mask: Int {
-    case player = 1, ground , enemy 
+    case player = 1, ground , enemy , candy
     
 }
 extension GameScene: SKPhysicsContactDelegate{
@@ -17,14 +17,29 @@ extension GameScene: SKPhysicsContactDelegate{
     
     
     func didBegin(_ contact: SKPhysicsContact) {
+        // Contato entre o player e o inimigo
         if (contact.bodyA.node?.name == "player" && contact.bodyB.node?.name == "enemy"){
             contact.bodyA.node?.removeFromParent()
             print("you loser my brother")
         }
         if (contact.bodyA.node?.name == "enemy" && contact.bodyB.node?.name == "player"){
             contact.bodyB.node?.removeFromParent()
-            print("you loser my brother")
+            //print("you loser my brother")
         }
+        
+        // Contato entre o player o os coletaveis
+        if (contact.bodyA.node?.name == "candy" && contact.bodyB.node?.name == "player") {
+            contact.bodyA.node?.removeFromParent()
+            self.countCandy += 1
+            self.countLabel.text = "\(self.countCandy)"
+        }
+        
+        if (contact.bodyA.node?.name == "player" && contact.bodyB.node?.name == "candy") {
+            contact.bodyB.node?.removeFromParent()
+            self.countCandy += 1
+            self.countLabel.text = "\(self.countCandy)"
+        }
+        
     }
     
     func didEnd(_ contact: SKPhysicsContact) {

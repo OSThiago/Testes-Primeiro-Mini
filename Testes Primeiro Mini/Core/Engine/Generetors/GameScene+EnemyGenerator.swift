@@ -9,40 +9,28 @@ import SpriteKit
 
 
 extension GameScene{
-    func creatEnemy(position: CGPoint) -> SKSpriteNode {
-        let enemy = SKSpriteNode(imageNamed: "fantasma1")
-        enemy.setScale(0.8)
-        enemy.position = position
-        enemy.zPosition = 1
-        enemy.name = "enemy"
-        let body = SKPhysicsBody(texture: SKTexture(imageNamed: "fantasma1"), size: enemy.size)
-        body.affectedByGravity = true
-        body.allowsRotation = false
-        body.isDynamic = false
-        body.categoryBitMask = UInt32(mask.enemy.rawValue)
-        body.contactTestBitMask = UInt32(mask.player.rawValue)
-        enemy.physicsBody = body
-        
-        return enemy
-    }
-    
     
     func generatEnemys(time: TimeInterval){
-
+        
+        //var timeTeste = time
         
         let creatEnemy = SKAction.run {
+            
+            
             let qualquerCoisaAi = self.randomPosition()
             let initialPosition = CGPoint(x: self.size.width*1.5, y: self.size.height*(qualquerCoisaAi))
+            let random = Int.random(in: 1...4)
             
-            let _enemy = self.creatEnemy(position: initialPosition)
+            let enemy = Enemy(image: "obstacle\(random)", position: initialPosition)
+            //let enemy = self.creatEnemy(position: initialPosition)
             if qualquerCoisaAi < 0.63{
-                _enemy.xScale = _enemy.xScale*(-1)
-                _enemy.yScale = _enemy.yScale*(-1)
+                enemy.xScale = enemy.xScale*(-1)
+                enemy.yScale = enemy.yScale*(-1)
             }
-
-            self.addChild(_enemy)
-            self.moveEnemy(node: _enemy, time: time)
-        
+            
+            self.addChild(enemy)
+            self.moveEnemy(node: enemy, time: time)
+            
         }
         
         let waitInBetween = SKAction.wait(forDuration: time)
