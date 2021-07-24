@@ -10,26 +10,36 @@ import SpriteKit
 
 extension GameScene{
     
+    
     func generatEnemys(time: TimeInterval){
         
-        //var timeTeste = time
+        
         
         let creatEnemy = SKAction.run {
+            let randomHeight: CGFloat = self.randomPosition()
+            
+            let initialPosition = CGPoint(x: self.size.width*1.5, y: self.size.height*randomHeight)
+            
+            // Escolher uma imagem aleatoria a partir do lado da tela
+            
+            let imageNumber = self.randomImageEnemyBySide(side: randomHeight)
+            
+            let enemy = Enemy(image: "obstacle\(imageNumber)", position: initialPosition)
+            
+            enemy.position.y = initialPosition.y * self.adjustHeight(imageNumber: imageNumber)
             
             
-            let qualquerCoisaAi = self.randomPosition()
-            let initialPosition = CGPoint(x: self.size.width*1.5, y: self.size.height*(qualquerCoisaAi))
-            let random = Int.random(in: 1...4)
-            
-            let enemy = Enemy(image: "obstacle\(random)", position: initialPosition)
-            //let enemy = self.creatEnemy(position: initialPosition)
-            if qualquerCoisaAi < 0.63{
-                enemy.xScale = enemy.xScale*(-1)
+            if enemy.position.y < self.size.height*0.5 {
                 enemy.yScale = enemy.yScale*(-1)
             }
             
+            
             self.addChild(enemy)
             self.moveEnemy(node: enemy, time: time)
+            
+            // Gambiarra para ajustar a altura
+            // Perguntar para o vini como reajusta o centro do node
+            
             
         }
         
@@ -41,14 +51,14 @@ extension GameScene{
     
     func randomPosition()->CGFloat{
         let random = Int.random(in: 1...3)
-        print(random)
+        //print(random)
         switch random {
         case 1:
-            return 0.39
+            return 0.43
         case 2:
-            return 0.63
+            return 0.56
         default:
-            return 0.63
+            return 0.56
         }
     }
     
@@ -61,4 +71,39 @@ extension GameScene{
         let sequence = SKAction.sequence([moveAction,remove])
         node.run(sequence)
     }
+    
+    
+    func randomImageEnemyBySide(side: CGFloat) -> Int{
+        var imageNumber: Int
+        // caso esteja em cima
+        if side == 0.56 {
+             imageNumber = Int.random(in: 1...3)
+            return imageNumber
+        } else {
+            // caso esteja em baixo
+            imageNumber = Int.random(in: 5...7)
+            return imageNumber
+        }
+    }
+    
+    func adjustHeight(imageNumber image: Int) -> CGFloat{
+        switch image {
+        case 1:
+            return 1.2
+        case 2:
+            return 1.15
+        case 3:
+            return 1.4
+        case 5:
+            return 0.85
+        case 6:
+            return 0.75
+        case 7:
+            return 0.45
+        default:
+            return 1.0
+        }
+    }
+    
+    
 }

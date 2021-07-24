@@ -30,7 +30,7 @@ extension GameScene {
             // Olha o lado atual do player: em cima ou em baixo
             switch player.getPlayerSide() {
             case .TOP:
-                jumpPlayer(heightJump: 0.36)
+                jumpPlayer(heightJump: 0.26)
             case .BOTTOM:
                 reversePlayer(heightPosition: 0.63)
             }
@@ -42,7 +42,7 @@ extension GameScene {
             case .TOP:
                 reversePlayer(heightPosition: 0.39)
             case .BOTTOM:
-                jumpPlayer(heightJump: -0.36)
+                jumpPlayer(heightJump: -0.26)
             }
         default:
             print("No Direction")

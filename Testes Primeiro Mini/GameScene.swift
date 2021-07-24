@@ -42,13 +42,13 @@ class GameScene: SKScene {
         
         parallax()
         
-        initialGround(time: 2)
+        initialGround(time: 1.43)
         //generateGrounds(time: 2)
+       
         generatEnemys(time: 2)
         
-        
         // Teste doce
-        //generateCandy(speed: 2,time: 3)
+        generateCandy(speed: 2,time: 3)
         
         
         // Teste contador
@@ -100,6 +100,7 @@ class GameScene: SKScene {
         }
         
         
+        // Colocando movimentacao na camera para seguir o player com um delay
         switch player.getPlayerSide() {
         case .TOP:
             //cameraNode.position = CGPoint(x: player.getNode().position.x, y: player.getNode().position.y*1.35)
@@ -122,24 +123,10 @@ class GameScene: SKScene {
     }
     
     
-
-    
-    
-  
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     
     
-    // teste do tempo
-    
-    
-    
-    
 }
-
-
-// MARK: - Configuration
-
-

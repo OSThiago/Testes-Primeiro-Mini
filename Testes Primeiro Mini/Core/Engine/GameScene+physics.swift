@@ -40,6 +40,18 @@ extension GameScene: SKPhysicsContactDelegate{
             self.countLabel.text = "\(self.countCandy)"
         }
         
+        // Contato entre 2 Inimigos
+        if (contact.bodyA.node?.name == "candy" && contact.bodyB.node?.name == "enemy"){
+            contact.bodyA.node?.removeFromParent()
+            //print("you loser my brother")
+        }
+        
+        if (contact.bodyA.node?.name == "enemy" && contact.bodyB.node?.name == "candy"){
+            contact.bodyB.node?.removeFromParent()
+            //print("you loser my brother")
+        }
+        
+        
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
